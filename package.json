@@ -9,6 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.12.2"
+    "@astrojs/vue": "^5.1.0",
+    "@fontsource/azeret-mono": "^5.2.9",
+    "@fontsource/cascadia-mono": "^5.2.2",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.2",
+    "bun-plugin-tailwind": "0.0.15",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^4.1.11",
+    "vue": "^3.5.17"
   }
 }

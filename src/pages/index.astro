@@ -1,16 +1,113 @@
 ---
+import Type from "../components/Type.vue";
+import "../styles/global.css";
+import "@fontsource/cascadia-mono";
+import ordinal from "../utils/ordinal";
+import type { ACTION_ERROR_CODES } from "astro:actions";
 
+const date = new Date();
+const currentYear = date.getFullYear();
+const yearOfStudy = ordinal(
+    // current year of study based on date
+    date.getMonth() < 9 ? currentYear - 2024 : currentYear - 2024 + 1,
+);
+
+interface SocialLink {
+    label: string;
+    url: URL | string;
+    handle?: string;
+}
+
+const links: SocialLink[] = [
+    {
+        label: "GitHub",
+        url: "https://github.com/jamesbarret715",
+        handle: "jamesbarret715",
+    },
+    {
+        label: "Instagram",
+        url: "https://instagram.com/james.barret_",
+        handle: "@james.barret_",
+    },
+    {
+        label: "Bluesky",
+        url: "https://bsky.app/profile/jamesbarret.bsky.social",
+        handle: "@jamesbarret.bsky.social",
+    },
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>James Barret</title>
+    </head>
+    <body class="bg-[#121412] text-gray-100">
+        <div class="w-screen h-screen pt-32 flex flex-col items-center">
+            <div
+                class="w-[50dvw] max-w-[800px] grow flex flex-col items-start space-y-4"
+            >
+                <h1 class="font-bold text-5xl">
+                    <span class="text-green-300">$</span>
+                    <Type client:load text="Hi! I'm James!" speed={120} />
+                </h1>
+                <p>
+                    I'm a {yearOfStudy} year Mechanical Engineering student at
+                    <a
+                        class="font-semibold hover:underline underline-offset-2 decoration-2 decoration-green-300"
+                        href="https://imperial.ac.uk"
+                    >
+                        Imperial College London</a
+                    >.
+                    <br />
+                    I write code and make stuff when I have time.
+                </p>
+
+                <h2 class="pt-4 font-semibold text-2xl">
+                    <span class="text-green-300">></span> Find Me Online
+                </h2>
+                <ul>
+                    {
+                        links.map((link) => (
+                            <li>
+                                <span class="ml-8 font-semibold text-green-300">
+                                    -{" "}
+                                </span>
+                                <a
+                                    class="inline-block font-semibold hover:underline underline-offset-2 decoration-2 decoration-green-300"
+                                    href={link.url}
+                                >
+                                    {link.label}
+                                </a>
+                                {link.handle ? (
+                                    <span> ({link.handle})</span>
+                                ) : (
+                                    ""
+                                )}
+                            </li>
+                        ))
+                    }
+                </ul>
+
+                <h2 class="pt-4 font-semibold text-2xl">
+                    <span class="text-green-300">></span> Get in Touch
+                </h2>
+                <p>
+                    Drop me an <a
+                        class="inline-block font-semibold hover:underline underline-offset-2 decoration-2 decoration-green-300"
+                        href="mailto:jamesbarret715@gmail.com">email</a
+                    > and I'll get back to you.
+                </p>
+            </div>
+
+            <p class="text-xs pb-4 text-gray-400">
+                Made with <span class="font-semibold text-green-300">&lt;3</span
+                > by James Barret ({currentYear})
+            </p>
+        </div>
+    </body>
 </html>

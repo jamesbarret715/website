@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+    --default-font-family: var(--font-mono);
+    --font-mono: 'Cascadia Mono', ui-monospace, "Courier New";
+}
