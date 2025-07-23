@@ -53,7 +53,12 @@ const links: SocialLink[] = [
             >
                 <h1 class="font-bold text-5xl">
                     <span class="text-green-300">$</span>
-                    <Type client:load text="Hi! I'm James!" speed={120} />
+                    <Type
+                        client:visible
+                        text="Hi! I'm James!"
+                        speed={160}
+                        delay={200}
+                    />
                 </h1>
                 <p>
                     I'm a {yearOfStudy} year Mechanical Engineering student at
