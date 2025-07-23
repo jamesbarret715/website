@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@astrojs/vue": "^5.1.0",
-    "@fontsource/azeret-mono": "^5.2.9",
     "@fontsource/cascadia-mono": "^5.2.2",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.2",
