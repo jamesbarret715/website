@@ -19,14 +19,12 @@ COPY . .
 RUN bun run build
 
 # PRODUCTION
-FROM base AS production
+FROM nginx:1.25-alpine AS production
 
-ENV NODE_ENV=production
+COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
+EXPOSE 80
 
-EXPOSE 4321
+CMD ["nginx", "-g", "daemon off;"]
 
-CMD ["bun", "dist/server/entry.mjs", "--host", "0.0.0.0"]
 
