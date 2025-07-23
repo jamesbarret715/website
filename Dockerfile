@@ -1,6 +1,8 @@
 # BASE
 FROM oven/bun:alpine AS base
+
 WORKDIR /app
+RUN bun astro telemetry disable 
 
 # DEPS
 FROM base AS deps
