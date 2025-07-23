@@ -1,5 +1,5 @@
 # BASE
-FROM node:20-alpine AS base
+FROM oven/bun:20-alpine AS base
 WORKDIR /app
 
 # DEPS
