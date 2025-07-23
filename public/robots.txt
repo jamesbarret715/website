@@ -21,4 +21,4 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
-Sitemap: https://jamesbarret.co.uk/sitemap.xml
+Sitemap: https://jamesbarret.co.uk/sitemap-index.xml
